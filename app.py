@@ -12,8 +12,13 @@ app = Flask(__name__)
 ### Routing
 # Home Page
 @app.route("/")
-def hello_world():
+def homePage():
     return render_template('index.html')
+
+# About Page
+@app.route("/about")
+def aboutPage():
+    return render_template('about.html')
 
 
 ### Running Web
