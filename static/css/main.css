@@ -7,6 +7,19 @@ body{
 
 #search-box{
     position: absolute;
-    top: 10%;
-    left: 80%;
+    left: 75%;
 }
+
+#menubar{
+    display: flex;
+    /* background-color: black; */
+}
+
+#menubar a{
+    text-decoration: none;
+}
+
+#search-box svg{
+    overflow: auto;
+}
+
