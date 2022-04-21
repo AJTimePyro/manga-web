@@ -2,7 +2,7 @@
 
 
 ### Importing Files
-from flask import Flask
+from flask import Flask, render_template
 
 
 ### Creating App Object
@@ -13,7 +13,7 @@ app = Flask(__name__)
 # Home Page
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return render_template('index.html')
 
 
 ### Running Web
