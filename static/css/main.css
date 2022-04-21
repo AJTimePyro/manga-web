@@ -1,0 +1,12 @@
+
+/* Reset CSS */
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#search-box{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+}
