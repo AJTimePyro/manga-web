@@ -5,21 +5,56 @@ body{
     padding: 0;
 }
 
-#search-box{
-    position: absolute;
-    left: 75%;
+:root {
+    --searchbox: #444a4c;
 }
 
 #menubar{
     display: flex;
-    /* background-color: black; */
+    margin-top: 20px;
+    padding-bottom: 23px;
 }
 
 #menubar a{
     text-decoration: none;
 }
 
-#search-box svg{
-    overflow: auto;
+#search-box{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    left: 75%;
+    height: 36px;
+    width: 100%;
+    max-width: 20%;
+    padding-left: 20px;
+    background: white;
+    border: 2px solid var(--searchbox);
+    border-radius: 60px;
+}
+
+#search-box input{
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 10px 6px;
+    font-size: 14px;
+}
+
+#search-box button{
+    border: 0;
+    background: var(--searchbox);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+}
+
+#search-box button img{
+    width: 25px;
+}
+
+::placeholder{
+    color: var(--searchbox);
 }
 
