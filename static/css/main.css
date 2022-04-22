@@ -13,10 +13,15 @@ body{
     display: flex;
     margin-top: 20px;
     padding-bottom: 23px;
+    background: var(--searchbox);
 }
 
 #menubar a{
     text-decoration: none;
+    margin-top: 20px;
+    margin-inline-start: 15%;
+    color: white;
+    font-size: 20px;
 }
 
 #search-box{
@@ -28,6 +33,7 @@ body{
     width: 100%;
     max-width: 20%;
     padding-left: 20px;
+    margin-top: 12px;
     background: white;
     border: 2px solid var(--searchbox);
     border-radius: 60px;
@@ -45,8 +51,8 @@ body{
     border: 0;
     background: var(--searchbox);
     border-radius: 50%;
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 40px;
     cursor: pointer;
 }
 
@@ -56,5 +62,9 @@ body{
 
 ::placeholder{
     color: var(--searchbox);
+}
+
+@media (max-width: 1024px){
+
 }
 
