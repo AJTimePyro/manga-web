@@ -20,6 +20,11 @@ def homePage():
 def aboutPage():
     return render_template('about.html')
 
+# Contact Page
+@app.route("/contact")
+def contacttPage():
+    return render_template('contact.html')
+
 
 ### Running Web
 if __name__ == "__main__":

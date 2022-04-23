@@ -6,12 +6,11 @@ body{
 }
 
 :root {
-    --searchbox: #444a4c;
+    --searchbox: #fd2323;
 }
 
 #menubar{
     display: flex;
-    margin-top: 20px;
     padding-bottom: 23px;
     background: var(--searchbox);
 }
@@ -22,6 +21,10 @@ body{
     margin-inline-start: 15%;
     color: white;
     font-size: 20px;
+}
+
+#menubar a:hover{
+    color: gray;
 }
 
 #search-box{
@@ -61,7 +64,7 @@ body{
 }
 
 ::placeholder{
-    color: var(--searchbox);
+    color: rgb(94, 23, 23);
 }
 
 @media (max-width: 1024px){
