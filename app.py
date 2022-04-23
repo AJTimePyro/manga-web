@@ -21,9 +21,8 @@ app = Flask(__name__)
 def homePage():
     query = request.args.get('search')
     if query:
-        SearchEngine(query)
-    else:
-        return render_template('index.html')
+        search = SearchEngine(query)
+    return render_template('index.html')
 
 # About Page
 @app.route("/about")
