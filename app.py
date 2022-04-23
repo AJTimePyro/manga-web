@@ -22,7 +22,8 @@ def homePage():
     query = request.args.get('search')
     if query:
         search = SearchEngine(query)
-    return render_template('index.html')
+    gif = RandomAnimeGif()
+    return render_template('index.html', gifUrl = gif.imgUrl)
 
 # About Page
 @app.route("/about")

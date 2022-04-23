@@ -4,16 +4,25 @@
 ### Importing Modules, Files, etc.
 from urllib import request as req
 from bs4 import BeautifulSoup
+from random import choice
+import json
 
 
-### Search Engine
-class SearchEngine:
+### Common data
+class commonThings:
 
-    def __init__(self, query):
-        self.query = query
+    def __init__(self):
         self.headers = {
             "user-agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
         }
+
+
+### Search Engine
+class SearchEngine(commonThings):
+
+    def __init__(self, query):
+        self.query = query
+        commonThings.__init__(self)
         self.searchingResult()
     
     def searchingResult(self):
@@ -32,4 +41,59 @@ class SearchEngine:
             url = i.a
             mangaList.append((url['href'], url.img['src']))
         print(mangaList)
+
+
+### Random Anime Gif Finder
+class RandomAnimeGif(commonThings):
+
+    def __init__(self):
+        commonThings.__init__(self)
+        self.preDefine = [
+            "waifu",
+            "neko",
+            "shinobu",
+            "megumin",
+            "bully",
+            "cuddle",
+            "cry",
+            "hug",
+            "awoo",
+            "kiss",
+            "lick",
+            "pat",
+            "smug",
+            "bonk",
+            "yeet",
+            "blush",
+            "smile",
+            "wave",
+            "highfive",
+            "handhold",
+            "nom",
+            "bite",
+            "glomp",
+            "slap",
+            "kill",
+            "kick",
+            "happy",
+            "wink",
+            "poke",
+            "dance",
+            "cringe"
+        ]
+        self.selectingRandomCategory()
+    
+    def selectingRandomCategory(self):
+        self.category = choice(self.preDefine)
+        self.searchGif()
+    
+    def searchGif(self):
+        requesting = req.Request(
+            f'https://api.waifu.pics/sfw/{self.category}',
+            headers = self.headers
+        )
+        res = req.urlopen(requesting)
+        data = res.read()
+        jsonData = json.loads(data)
+        self.imgUrl = jsonData['url']
 
