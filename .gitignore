@@ -2,3 +2,8 @@
 # Virtual Environment
 /venv
 
+# Cache Files
+__pycache__
+
+# Test Files
+testexp

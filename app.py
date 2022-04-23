@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 
 
-### Importing Files
-from flask import Flask, render_template, url_for
+### Importing Modules, Files, etc.
+from flask import (
+    Flask,
+    render_template,
+    url_for,
+    request
+)
+from helper.search import *
 
 
 ### Creating App Object
@@ -10,10 +16,14 @@ app = Flask(__name__)
 
 
 ### Routing
-# Home Page
+# Home Page with search Engine
 @app.route("/")
 def homePage():
-    return render_template('index.html')
+    query = request.args.get('search')
+    if query:
+        SearchEngine(query)
+    else:
+        return render_template('index.html')
 
 # About Page
 @app.route("/about")
@@ -22,7 +32,7 @@ def aboutPage():
 
 # Contact Page
 @app.route("/contact")
-def contacttPage():
+def contactPage():
     return render_template('contact.html')
 
 
