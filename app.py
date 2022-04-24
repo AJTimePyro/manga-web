@@ -23,6 +23,7 @@ def homePage():
     if query:
         search = SearchEngine(query)
         search.mangaList
+        return render_template('search.html', query = query)
     gif = RandomAnimeGif()
     return render_template('index.html', gifUrl = gif.imgUrl)
 
