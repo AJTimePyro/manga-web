@@ -40,7 +40,7 @@ class SearchEngine(commonThings):
         for i in page.find_all('div', class_='story_item'):
             url = i.a
             mangaList.append((url['href'], url.img['src']))
-        print(mangaList)
+        self.mangaList = mangaList
 
 
 ### Random Anime Gif Finder
