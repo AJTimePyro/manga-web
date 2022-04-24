@@ -2,6 +2,10 @@
 
 {% block head %} 
 <title>{{ query }}</title>
+<script>
+    var query = {{ query|tojson|safe }};    // This is not any error, it's flask syntax for
+                                            // using python variable and converting them to json object
+</script>
 <script src="{{ url_for('static', filename = 'js/search.js') }}"></script>
 {% endblock %}
 
