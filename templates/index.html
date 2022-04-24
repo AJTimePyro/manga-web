@@ -2,10 +2,11 @@
 
 {% block head %}
 <title>Unlimited Manga</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
 {% endblock %}
 
 {% block body %}
-<div>
+<div id="background-img">
     <img src="{{ gifUrl }}" alt="">
 </div>
 {% endblock %}
