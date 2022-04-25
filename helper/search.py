@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 
-### Importing Modules, Files, etc.
+### Importing Modules, Files, etc...
 from urllib import request as req
 from bs4 import BeautifulSoup
-from random import choice
+import random
 import json
 
 
@@ -20,11 +20,15 @@ class commonThings:
 ### Search Engine
 class SearchEngine(commonThings):
 
-    def __init__(self, query):
+    def __init__(self, query:str):
         self.query = query
         commonThings.__init__(self)
+        self.removingSpace()
         self.searchingResult()
     
+    def removingSpace(self):
+        self.query = self.query.replace(' ', '_')
+
     def searchingResult(self):
         requesting = req.Request(
             f'https://mangakakalot.com/search/story/{self.query}',
@@ -85,7 +89,7 @@ class RandomAnimeGif(commonThings):
         self.selectingRandomCategory()
     
     def selectingRandomCategory(self):
-        self.category = choice(self.preDefine)
+        self.category = random.choice(self.preDefine)
         self.searchGif()
     
     def searchGif(self):

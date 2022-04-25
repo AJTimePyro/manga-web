@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+    <script src="{{ url_for('static', filename = 'js/index.js') }}"></script>
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -14,8 +15,8 @@
                 <a href="/about">About</a>
                 <a href="/contact">Contact US</a>
                 <div id="search-box">
-                    <input type="text" name="" placeholder="Type To Search">
-                    <button>
+                    <input type="text" name="search-query" placeholder="Type To Search">
+                    <button id="search-btn">
                         <img src="{{ url_for('static', filename = 'icons/search.png') }}" alt="">
                     </button>
                 </div>
