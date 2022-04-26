@@ -7,17 +7,23 @@ window.onload = () => {
 
         // Creating Tags
         var resultDom = document.createElement('div');
-        var imgTags = document.createElement('img');
-        var titleTags = document.createElement('a')
+        var imgTag = document.createElement('img');
+        var imgATag = document.createElement('a');
+        var titleTag = document.createElement('a')
 
         // Adding some attributes
-        imgTags.src = query[data]['img'];
-        titleTags.href = query[data]['url'];
-        titleTags.innerText = query[data]['title'];
+        imgTag.src = query[data]['img'];
+        titleTag.href = query[data]['url'];
+        imgATag.href = titleTag.href;
+        titleTag.innerText = query[data]['title'];
+        resultDom.className = 'manga';
+        imgATag.className = 'manga-poster';
+        titleTag.className = 'manga-title';
 
         // Appending in DOM
-        resultDom.appendChild(imgTags);
-        resultDom.appendChild(titleTags);
+        imgATag.appendChild(imgTag);
+        resultDom.appendChild(imgATag);
+        resultDom.appendChild(titleTag);
         body.appendChild(resultDom);
     }
 }
