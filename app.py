@@ -20,9 +20,11 @@ app = Flask(__name__)
 @app.route("/")
 def homePage():
     query = request.args.get('search')
-    if query:
-        search = SearchEngine(query)
-        return render_template('search.html', result = search.mangaList, query = query)
+    if query is not None:
+        if query:
+            search = SearchEngine(query)
+            return render_template('search.html', result = search.mangaList, query = query)
+        
     gif = RandomAnimeGif()
     return render_template('index.html', gifUrl = gif.imgUrl)
 

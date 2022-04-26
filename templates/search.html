@@ -2,6 +2,7 @@
 
 {% block head %} 
 <title>{{ query }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/search.css') }}">
 <script>
     var query = {{ result|tojson|safe }};    // This is not any error, it's flask syntax for
                                             // using python variable and converting them to json object
@@ -10,5 +11,7 @@
 {% endblock %}
 
 {% block body %}
-
+<div id="header">
+    <h3>Results for {{ query }}</h3>
+</div>
 {% endblock %}
