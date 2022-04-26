@@ -40,10 +40,17 @@ class SearchEngine(commonThings):
     
     def parsingData(self):
         page = BeautifulSoup(self.webcontent, 'html.parser')
-        mangaList = list()
+        mangaList = dict()
+        count = 0
         for i in page.find_all('div', class_='story_item'):
+            count += 1
             url = i.a
-            mangaList.append((url['href'], url.img['src']))
+            img = url.img
+            mangaList[count] = {
+                'title' : img['alt'],
+                'url' : url['href'],
+                'img' : img['src']
+            }
         self.mangaList = json.dumps(mangaList)
 
 

@@ -26,6 +26,7 @@ window.onload = () => {
     ).addEventListener(
         'click',
         (e)=> {
+            console.log('hi')
             searchQuery(e);
         }
     );
