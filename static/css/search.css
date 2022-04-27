@@ -18,8 +18,16 @@
 .manga{
     display: flex;
     flex-direction: column;
+    width: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 25px;
+    transition: 0.3s;
     padding: 3% 3%;
-    max-width: 40%;
+    margin: 1%;
+}
+
+.manga:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .manga-poster{
@@ -41,6 +49,6 @@
 }
 
 .manga-title:hover{
-    overflow: visible;
+    white-space: normal;
 }
 
