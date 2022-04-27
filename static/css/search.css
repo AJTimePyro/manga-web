@@ -47,6 +47,9 @@
 }
 
 .manga-title{
+    font-family: sans-serif;
+    /* font-size: 110%;
+    font-weight: bold; */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
