@@ -38,6 +38,12 @@
 .manga-poster img{
     height: 100%;
     width: 100%;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 40%);
+    transition: 0.5s;
+}
+
+.manga-poster img:hover{
+    transform: scale(1.2);
 }
 
 .manga-title{
