@@ -2,7 +2,12 @@
 /* Reset CSS */
 *, html {
     margin:0;
-    padding:0;  
+    padding:0;
+    /* background-color: black; */
+}
+
+body{
+    background-color: #18191a;
 }
 
 :root {
@@ -54,7 +59,7 @@
     height: 36px;
     max-width: 20%;
     padding-left: 20px;
-    margin-top: -6px;
+    margin-top: -9px;
     background: white;
     border: 2px solid var(--searchbox);
     border-radius: 60px;

@@ -13,7 +13,7 @@ window.onload = () => {
 
         // Adding some attributes
         imgTag.src = query[data]['img'];
-        titleTag.href = query[data]['url'];
+        titleTag.href = `/manga/${query[data]['url-data']}`;
         imgATag.href = titleTag.href;
         titleTag.innerText = query[data]['title'];
         resultDom.className = 'manga';

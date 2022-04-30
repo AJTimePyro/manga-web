@@ -6,6 +6,7 @@ from urllib import request as req
 from bs4 import BeautifulSoup
 import random
 import json
+import os.path
 
 
 ### Common data
@@ -45,10 +46,11 @@ class SearchEngine(commonThings):
         for i in page.find_all('div', class_='story_item'):
             count += 1
             url = i.a
+            urlData = os.path.split(url['href'])[1]
             img = url.img
             mangaList[count] = {
                 'title' : img['alt'],
-                'url' : url['href'],
+                'url-data' : urlData,
                 'img' : img['src']
             }
         self.mangaList = json.dumps(mangaList)

@@ -38,6 +38,11 @@ def aboutPage():
 def contactPage():
     return render_template('contact.html')
 
+# Manga Chapter Page
+@app.route("/manga/<string:manga_id>")
+def mangaPage(manga_id):
+    return render_template('manga.html')
+
 
 ### Running Web
 if __name__ == "__main__":
