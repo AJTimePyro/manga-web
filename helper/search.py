@@ -2,20 +2,10 @@
 
 
 ### Importing Modules, Files, etc...
-from urllib import request as req
-from bs4 import BeautifulSoup
+from helper.common import *
 import random
 import json
 import os.path
-
-
-### Common data
-class commonThings:
-
-    def __init__(self):
-        self.headers = {
-            "user-agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
-        }
 
 
 ### Search Engine
@@ -31,19 +21,13 @@ class SearchEngine(commonThings):
         self.query = self.query.replace(' ', '_')
 
     def searchingResult(self):
-        requesting = req.Request(
-            f'https://mangakakalot.com/search/story/{self.query}',
-            headers = self.headers
-        )
-        res = req.urlopen(requesting)
-        self.webcontent = res.read()
+        self.requestToWeb(f'https://mangakakalot.com/search/story/{self.query}')
         self.parsingData()
     
     def parsingData(self):
-        page = BeautifulSoup(self.webcontent, 'html.parser')
         mangaList = dict()
         count = 0
-        for i in page.find_all('div', class_='story_item'):
+        for i in self.parsedData.find_all('div', class_='story_item'):
             count += 1
             url = i.a
             urlData = os.path.split(url['href'])[1]
@@ -102,12 +86,10 @@ class RandomAnimeGif(commonThings):
         self.searchGif()
     
     def searchGif(self):
-        requesting = req.Request(
+        self.requestToWeb(
             f'https://api.waifu.pics/sfw/{self.category}',
-            headers = self.headers
+            False
         )
-        res = req.urlopen(requesting)
-        data = res.read()
-        jsonData = json.loads(data)
+        jsonData = json.loads(self.webcontent)
         self.imgUrl = jsonData['url']
 

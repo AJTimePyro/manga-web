@@ -8,6 +8,7 @@ from flask import (
     url_for,
     request
 )
+from helper.chapter import Chapter
 from helper.search import *
 
 
@@ -41,6 +42,8 @@ def contactPage():
 # Manga Chapter Page
 @app.route("/manga/<string:manga_id>")
 def mangaPage(manga_id):
+    chap = Chapter(manga_id)
+    print(chap.chapterList)
     return render_template('manga.html')
 
 
