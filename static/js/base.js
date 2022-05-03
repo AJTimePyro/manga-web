@@ -4,7 +4,7 @@
 function searchQuery(e) {
     var query
     query = document.querySelector('#search-box input').value;
-    window.location.href = `?search=${query}`;
+    window.location.href = `/?search=${query}`;
 }
 
 // For enter in search box
