@@ -4,9 +4,9 @@
 <title>Search Result for {{ query }}</title>
 <link rel="stylesheet" href="{{ url_for('static', filename = 'css/search.css') }}">
 <script>
-    var query = JSON.parse({{ result| tojson | safe }});    // This is not any error, it's flask
-                                                            // syntax for using python variable
-                                                            // and converting them to json object
+    var query = JSON.parse({{ result| tojson | safe }});
+    // This is not any error it's flask syntax for using
+    // python variable and converting them to json object
 </script>
 <script src="{{ url_for('static', filename = 'js/search.js') }}"></script>
 {% endblock %}

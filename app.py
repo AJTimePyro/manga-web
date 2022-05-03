@@ -39,12 +39,12 @@ def aboutPage():
 def contactPage():
     return render_template('contact.html')
 
-# Manga Chapter Page
+# Manga Page
 @app.route("/manga/<string:manga_id>")
 def mangaPage(manga_id):
     chap = Chapter(manga_id)
-    print(chap.chapterList)
-    return render_template('manga.html')
+    print(chap.posterUrl)
+    return render_template('manga.html', chapList = chap.chapJson, title = chap.title)
 
 
 ### Running Web
