@@ -44,7 +44,12 @@ def contactPage():
 def mangaPage(manga_id):
     chap = Chapter(manga_id)
     print(chap.posterUrl)
-    return render_template('manga.html', chapList = chap.chapJson, title = chap.title)
+    return render_template(
+        'manga.html',
+        chapList = chap.chapJson,
+        title = chap.title,
+        poster = chap.posterUrl
+    )
 
 
 ### Running Web

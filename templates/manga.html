@@ -8,8 +8,15 @@
     // python variable and converting them to json object
 </script>
 <script src="{{ url_for('static', filename = 'js/chapter.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/chapter.css') }}">
 {% endblock %}
 
 {% block body %}
-
+<div id="poster">
+    <div>
+        <img id="poster-img" src="{{ poster }}" alt="Manga Poster">
+        <h3>{{ title }}</h3>
+    </div>
+</div>
+<div id="chapters"></div>
 {% endblock %}

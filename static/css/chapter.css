@@ -1,0 +1,45 @@
+
+
+#poster{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#poster-img{
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#poster div{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+#poster h3{
+    font-family: Helvetica, sans-serif;
+    color: white;
+    margin: auto;
+}
+
+#chapters{
+    display: flex;
+    flex-direction: column;
+}
+
+.chapter{
+    display: flex;
+    margin: 1%;
+}
+
+.chapter a{
+    text-decoration: none;
+    color: white;
+}
+
