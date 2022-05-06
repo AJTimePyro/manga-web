@@ -12,8 +12,8 @@ window.onload = () => {
         var aTag = document.createElement('a');
 
         // Adding Attributes
-        aTag.href = chapData['url'];
-        aTag.innerText = chapData['chapter-no'];
+        aTag.href = `?chapter=${chapData['chapter-no']}`;
+        aTag.innerText = chapData['chapter-title'];
         chapterDom.className = 'chapter';
 
         // Appending in DOM

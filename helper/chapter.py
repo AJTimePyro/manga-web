@@ -3,17 +3,20 @@
 
 ### Importing Modules, Files, etc...
 from helper.common import *
+import re
 
 
 ### Getting a List of Chapters
 class Chapter(commonThings):
 
-    def __init__(self, manga_id):
+    def __init__(self, manga_id, single_url=False):
         self.mangaID = manga_id
+        self.single_url = single_url
         self.chapterList = dict()
         commonThings.__init__(self)
         self.gettingChapters()
-        self.chapJson = json.dumps(self.chapterList)
+        if not self.single_url:
+            self.chapJson = json.dumps(self.chapterList)
     
     def gettingChapters(self):
         if 'manga-' in self.mangaID:
@@ -29,46 +32,58 @@ class Chapter(commonThings):
         self.__request()
         count = 0
 
-        # For finding Title of manga
-        self.titleClass = self.parsedData.find(class_ = 'story-info-right')
-        self.__getTitleName()
+        if not self.single_url:
+            # For finding Title of manga
+            self.titleClass = self.parsedData.find(class_ = 'story-info-right')
+            self.__getTitleName()
 
-        # For Getting Manga Poster
-        self.posterClass = self.parsedData.find(class_ = 'info-image')
-        self.__getMangaPoster()
+            # For Getting Manga Poster
+            self.posterClass = self.parsedData.find(class_ = 'info-image')
+            self.__getMangaPoster()
 
         # Parsing Chapter List
         for i in self.parsedData.find_all('li', class_ = 'a-h'):
-            count += 1
             tag = i.a
             url = tag['href']
+            if not count and self.single_url:
+                self.normUrl = url
+                break
+            chapID = re.search(r'chapter(-|_).*', url)
+            chapNo = self.__getChapterNo(chapID.group())
             title = tag.text
+            count += 1
             self.chapterList[count] = {
-                'chapter-no' : title,
-                'url' : url
+                'chapter-title' : title,
+                'chapter-no' : chapNo
             }
 
     def mangakakalot(self):
         self.__request()
         count = 0
 
-        # For finding Title of manga
-        self.titleClass = self.parsedData.find(class_ = 'manga-info-text')
-        self.__getTitleName()
+        if not self.single_url:
+            # For finding Title of manga
+            self.titleClass = self.parsedData.find(class_ = 'manga-info-text')
+            self.__getTitleName()
 
-        # For Getting Manga Poster
-        self.posterClass = self.parsedData.find(class_ = 'manga-info-pic')
-        self.__getMangaPoster()
+            # For Getting Manga Poster
+            self.posterClass = self.parsedData.find(class_ = 'manga-info-pic')
+            self.__getMangaPoster()
 
         # Parsing Chapter List
         for i in self.parsedData.find_all(class_ = 'row')[1:]:
-            count += 1
             a_tag = i.span.a
             url = a_tag['href']
+            if not count and self.single_url:
+                self.normUrl = url
+                break
+            chapID = re.search(r'chapter(-|_).*', url)
+            chapNo = self.__getChapterNo(chapID.group())
             title = a_tag.text
+            count += 1
             self.chapterList[count] = {
-                'chapter-no' : title,
-                'url' : url
+                'chapter-title' : title,
+                'chapter-no' : chapNo
             }
 
     def __request(self):
@@ -81,4 +96,10 @@ class Chapter(commonThings):
     def __getMangaPoster(self):
         imgTag = self.posterClass.img
         self.posterUrl = imgTag['src']
+    
+    def __getChapterNo(self, chap_id:str):
+        trimlist = chap_id.split('chapter')
+        trimlead = trimlist[1]
+        chapNo = trimlead[1:]
+        return chapNo
 

@@ -8,8 +8,8 @@ from flask import (
     url_for,
     request
 )
-from helper.chapter import Chapter
-from helper.search import *
+from helper.manga_page import *
+from helper.search import SearchEngine, RandomAnimeGif
 
 
 ### Creating App Object
@@ -42,14 +42,21 @@ def contactPage():
 # Manga Page
 @app.route("/manga/<string:manga_id>")
 def mangaPage(manga_id):
-    chap = Chapter(manga_id)
-    print(chap.posterUrl)
-    return render_template(
-        'manga.html',
-        chapList = chap.chapJson,
-        title = chap.title,
-        poster = chap.posterUrl
-    )
+    if manga_id:
+        chapter_no = request.args.get('chapter')
+        if chapter_no:
+            chapp = ChapterPage(manga_id)
+            return render_template(
+                'manga_page.html'
+            )
+        else:
+            chap = Chapter(manga_id)
+            return render_template(
+                'manga.html',
+                chapList = chap.chapJson,
+                title = chap.title,
+                poster = chap.posterUrl
+            )
 
 
 ### Running Web
