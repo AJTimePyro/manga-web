@@ -16,7 +16,7 @@
     user-select: none;
 }
 
-#poster div{
+#poster > div{
     display: flex;
     flex-direction: column;
     width: 20%;
@@ -25,7 +25,24 @@
 #poster h3{
     font-family: Helvetica, sans-serif;
     color: white;
-    margin: auto;
+}
+
+#poster-title{
+    background-color: orange;
+    text-align: center;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #46a6ab;
+
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #chapters{
@@ -35,11 +52,13 @@
 
 .chapter{
     display: flex;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border-radius: 5px;
     margin: 1%;
 }
 
 .chapter a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 

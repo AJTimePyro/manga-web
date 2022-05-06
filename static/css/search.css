@@ -52,7 +52,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     text-decoration: none;
-    color: white;
+    color: black;
+    text-align: center;
 }
 
 .manga-title:hover{

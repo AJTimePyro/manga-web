@@ -1,23 +1,18 @@
 
 /* Reset CSS */
-*, html {
+*{
     margin:0;
     padding:0;
-    /* background-color: black; */
-}
-
-body{
-    background-color: #18191a;
 }
 
 :root {
-    --searchbox: #3e3232;
+    --searchbox: #726969;
 }
 
 #menubar{
     background: var(--searchbox);
     
-    /* Prevefnting Selecting Text */
+    /* Preventing Selecting Text */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
