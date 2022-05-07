@@ -45,7 +45,7 @@ def mangaPage(manga_id):
     if manga_id:
         chapter_no = request.args.get('chapter')
         if chapter_no:
-            chapp = ChapterPage(manga_id)
+            chapp = ChapterPage(manga_id, chapter_no)
             return render_template(
                 'manga_page.html'
             )

@@ -7,13 +7,13 @@ import re
 
 
 ### Getting a List of Chapters
-class Chapter(commonThings):
+class Chapter(CommonThings):
 
     def __init__(self, manga_id, single_url=False):
         self.mangaID = manga_id
         self.single_url = single_url
         self.chapterList = dict()
-        commonThings.__init__(self)
+        super().__init__()    # Inheriting CommonThings class
         self.gettingChapters()
         if not self.single_url:
             self.chapJson = json.dumps(self.chapterList)

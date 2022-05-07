@@ -8,11 +8,11 @@ import os.path
 
 
 ### Search Engine
-class SearchEngine(commonThings):
+class SearchEngine(CommonThings):
 
     def __init__(self, query:str):
         self.query = query
-        commonThings.__init__(self)
+        super().__init__()    # Inheriting CommonThings class
         self.removingSpace()
         self.searchingResult()
     
@@ -41,10 +41,10 @@ class SearchEngine(commonThings):
 
 
 ### Random Anime Gif Finder
-class RandomAnimeGif(commonThings):
+class RandomAnimeGif(CommonThings):
 
     def __init__(self):
-        commonThings.__init__(self)
+        super().__init__()    # Inheriting CommonThings class
         self.preDefine = [
             "waifu",
             "neko",

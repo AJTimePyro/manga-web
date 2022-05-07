@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 
 ### Common data
-class commonThings:
+class CommonThings:
 
     def __init__(self):
         self.headers = {
