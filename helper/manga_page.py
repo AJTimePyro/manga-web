@@ -3,6 +3,7 @@
 
 ### Importing Modules, Files, etc...
 from helper.chapter import *
+import base64
 
 
 ### Getting Page info
@@ -17,6 +18,10 @@ class ChapterPage(CommonThings):
 
         self.chapNo = chapter_no
         self.mangaID = manga_id
+
+        self.xheader = {
+            'referer' : 'https://readmanganato.com/'
+        }
 
         super().__init__()    # Inheriting CommonThings class
         self.main()
@@ -82,5 +87,5 @@ class ChapterPage(CommonThings):
         divTags = self.parsedData.find_all('div', class_ = 'container-chapter-reader')
         for imgTag in divTags[0].find_all('img'):
             pageList.append(imgTag['src'])
-        print(pageList)
+        self.pageList = pageList
 
