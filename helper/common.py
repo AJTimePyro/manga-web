@@ -4,7 +4,6 @@
 ### Importing Common stuffs
 import json
 from urllib import request as req
-from bs4 import BeautifulSoup
 
 
 ### Common data
