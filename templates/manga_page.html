@@ -3,7 +3,7 @@
 {% block head %}
 <title></title>
 <script>
-    var pageData = {{ pageData| tojson | safe }};
+    var pageData = JSON.parse({{ pageData| tojson | safe }});
     // This is not any error it's flask syntax for using
     // python variable and converting them to json object
     // console.log(pageData);

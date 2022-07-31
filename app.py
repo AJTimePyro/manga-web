@@ -39,25 +39,32 @@ def aboutPage():
 def contactPage():
     return render_template('contact.html')
 
-# Manga Page
+# Chapter List of Manga
 @app.route("/manga/<string:manga_id>")
-def mangaPage(manga_id):
-    if manga_id:
-        chapter_no = request.args.get('chapterid')
-        if chapter_no:
-            pge = ChapterPage(manga_id, chapter_no)
-            return render_template(
-                'manga_page.html',
-                pageData = pge.pageList
-            )
-        else:
-            chap = Chapter(manga_id)
-            return render_template(
-                'manga.html',
-                chapList = chap.chapJson,
-                title = chap.title,
-                poster = chap.posterUrl
-            )
+def chapterList(manga_id):
+        # chapter_no = request.args.get('chapterid')
+        # if chapter_no:
+        #     pge = ChapterPage(manga_id, chapter_no)
+        #     return render_template(
+        #         'manga_page.html',
+        #         pageData = pge.pageList
+        #     )
+    chap = Chapter(manga_id)
+    return render_template(
+        'manga.html',
+        chapList = chap.chapJson,
+        title = chap.title,
+        poster = chap.posterUrl
+    )
+
+# Pages of Manga
+@app.route('/chapters/<int:chapter_id>')
+def chapterPages(chapter_id):
+    pge = ChapterPage(chapter_id)
+    return render_template(
+        'manga_page.html',
+        pageData = pge.pageList
+    )
 
 
 ### Running Web
