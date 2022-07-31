@@ -43,7 +43,7 @@ def contactPage():
 @app.route("/manga/<string:manga_id>")
 def mangaPage(manga_id):
     if manga_id:
-        chapter_no = request.args.get('chapter')
+        chapter_no = request.args.get('chapterid')
         if chapter_no:
             pge = ChapterPage(manga_id, chapter_no)
             return render_template(

@@ -4,7 +4,6 @@
 ### Importing Modules, Files, etc...
 from helper.common import *
 import random
-import os.path
 
 
 ### Search Engine
@@ -17,27 +16,38 @@ class SearchEngine(CommonThings):
         self.searchingResult()
     
     def removingSpace(self):
-        self.query = self.query.replace(' ', '_')
+        """
+        Replacing space with %20 for searching query
+        """
+        self.query = self.query.replace(' ', '%20')
 
     def searchingResult(self):
-        self.requestToWeb(f'https://mangakakalot.com/search/story/{self.query}')
+        """
+        Searching Query and getting proper results
+        """
+        self.requestToWeb(f'https://api.mangaowl.to/v1/search?q={self.query}')
         self.parsingData()
     
     def parsingData(self):
-        mangaList = dict()
-        count = 0
-        for i in self.parsedData.find_all('div', class_='story_item'):
-            count += 1
-            url = i.a
-            urlData = os.path.split(url['href'])[1]
-            img = url.img
-            mangaList[count] = {
-                'title' : img['alt'],
-                'url-data' : urlData,
-                'img' : img['src']
-            }
-        self.mangaList = json.dumps(mangaList)
+        """
+        Getting useful data
+        """
+        jsonData = json.loads(self.webcontent)
+        resultData = jsonData['results']
 
+        if resultData:  # If data exist
+            mangaList = dict()
+            count = 0
+            for data in resultData:
+                count += 1
+                mangaList[count] = {
+                    'title' : data['name'],
+                    'url-data' : data['slug'],
+                    'img' : data['thumbnail']
+                }
+            self.mangaList = json.dumps(mangaList)
+        else:   # If data not exist
+            self.mangaList = None
 
 
 ### Random Anime Gif Finder
@@ -85,10 +95,7 @@ class RandomAnimeGif(CommonThings):
         self.searchGif()
     
     def searchGif(self):
-        self.requestToWeb(
-            f'https://api.waifu.pics/sfw/{self.category}',
-            False
-        )
+        self.requestToWeb(f'https://api.waifu.pics/sfw/{self.category}')
         jsonData = json.loads(self.webcontent)
         self.imgUrl = jsonData['url']
 

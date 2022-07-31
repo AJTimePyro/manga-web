@@ -12,7 +12,7 @@ window.onload = () => {
         var aTag = document.createElement('a');
 
         // Adding Attributes
-        aTag.href = `?chapter=${chapData['chapter-no']}`;
+        aTag.href = `?chapterid=${chapData['chapter-id']}`;
         aTag.innerText = chapData['chapter-title'];
         chapterDom.className = 'chapter';
 

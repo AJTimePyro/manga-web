@@ -15,7 +15,7 @@ class CommonThings:
             "user-agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
         }
 
-    def requestToWeb(self, url, beautify = True, **kwargs):
+    def requestToWeb(self, url, **kwargs):
         if kwargs:
             self.headers.update(kwargs)
         self.request = req.Request(
@@ -24,9 +24,5 @@ class CommonThings:
         )
         res = req.urlopen(self.request)
         self.webcontent = res.read()
-        if beautify:
-            self.parsedData = BeautifulSoup(self.webcontent, 'html.parser')
-            return self.parsedData
-        else:
-            return self.webcontent
+        return self.webcontent
 
