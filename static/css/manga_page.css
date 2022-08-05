@@ -1,0 +1,9 @@
+
+
+/* Each Page of manga */
+#page img{
+    display: block;
+    margin: 2px auto 0;
+    max-width: 100%;
+}
+

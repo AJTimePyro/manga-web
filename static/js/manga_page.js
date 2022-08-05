@@ -2,7 +2,6 @@
 
 // Displaying all pages of manga
 window.onload = () => {
-    console.log(pageData)
     const body = document.getElementById('page');
 
     for (const img in pageData) {
