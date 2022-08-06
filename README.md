@@ -4,7 +4,7 @@
 
 * :spiral_notepad:[Description](#Description)
 * :memo:[Requirements](#Requirements)
-* :crossed_swords:[Usage](#How-to-use?)
+* :crossed_swords:[Usage](#Usage)
 
 
 ## Description
@@ -17,7 +17,7 @@ And for now it's not that much advanced, because developer is noob.
 * Python 3
 * Some Python Packages (mentioned in [requirements.txt](requirements.txt))
 
-## How to use?
+## Usage
 ```
 pip install -r requirements.txt
 python app.py
