@@ -4,7 +4,7 @@
 
 * :spiral_notepad:[Description](#Description)
 * :memo:[Requirements](#Requirements)
-* :crossed_swords:[Usage](#How to use?)
+* :crossed_swords:[Usage](#How-to-use?)
 
 
 ## Description
