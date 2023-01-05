@@ -6,7 +6,7 @@
 }
 
 :root {
-    --searchbox: #726969;
+    --searchbox: #424242;
 }
 
 #menubar{
@@ -39,14 +39,14 @@
     padding: 7px;
     text-decoration: none;
     color: white;
-    font-size: 20px;
+    font-size: 1.5rem;
     transition: 0.7s;
 }
 
 .menu-page a:hover{
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 #212121;
 }
 
 #search-box{
@@ -82,6 +82,29 @@
 }
 
 @media (max-width: 1024px){
+    .menu-page {
+        margin: auto;
+    }
+}
 
+@media (max-width: 540px){
+    .menu-page {
+        margin: auto;
+    }
+
+    .menu-page a {
+        font-size: 1rem;
+    }
+
+    #search-box input {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 425px) {
+    #search-box input {
+        width: 100px;
+        padding: 0px;
+    }
 }
 
