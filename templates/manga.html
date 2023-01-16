@@ -4,8 +4,6 @@
 <title>{{ title }}</title>
 <script>
     var chapterList = JSON.parse({{ chapList| tojson | safe }});
-    // This is not any error it's flask syntax for using
-    // python variable and converting them to json object
 </script>
 <script src="{{ url_for('static', filename = 'js/chapter.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename = 'css/chapter.css') }}">
@@ -15,8 +13,30 @@
 <div id="poster">
     <div>
         <img id="poster-img" src="{{ poster }}" alt="Manga Poster">
+    </div>
+    <div>
         <div id="poster-title">
             <h3>{{ title }}</h3>
+        </div>
+        <div>
+            <div>
+                <p>
+                    {{ descr }}
+                </p>
+            </div>
+            <div>
+                <span>Author Name : {{ author }}</span>
+            </div>
+            <div>
+                <span>
+                    Status : {{ status }}
+                </span>
+            </div>
+            <div>
+                <span>
+                    {{ genres }}
+                </span>
+            </div>
         </div>
     </div>
 </div>

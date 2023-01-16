@@ -53,8 +53,12 @@ def chapterList(manga_id):
     return render_template(
         'manga.html',
         chapList = chap.chapJson,
-        title = chap.title,
-        poster = chap.posterUrl
+        title = chap.manga_info['name'],
+        poster = chap.manga_info['thumbnail'],
+        status = chap.manga_info['status'],
+        descr = chap.manga_info['description'],
+        author = chap.manga_info['author_name'],
+        genres = chap.manga_info['genres']
     )
 
 # Pages of Manga
@@ -69,5 +73,9 @@ def chapterPages(chapter_id):
 
 ### Running Web
 if __name__ == "__main__":
-    app.run(debug = True, port = 8000)
+    app.run(
+        host = '0.0.0.0',
+        debug = True,
+        port = 8000
+    )
 

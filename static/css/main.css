@@ -7,6 +7,7 @@
 
 :root {
     --searchbox: #424242;
+    background-color: #212121;
 }
 
 #menubar{
@@ -104,6 +105,13 @@
 @media (max-width: 425px) {
     #search-box input {
         width: 100px;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 375px) {
+    .menu-page a {
+        font-size: .9rem;
         padding: 0px;
     }
 }
